@@ -13,7 +13,7 @@ router.get('/signup',function(req, res){
 });
 
 router.post('/signup', function(req, res){
-  Account.signup(new Account({ username : req.body.username }), req.body.password, function(err, account){
+  Account.register(new Account({ username : req.body.username, email : req.body.email, name: req.body.name }), req.body.password, function(err, account){
       if (err) {
         return res.render('signup', { account : account });
       }

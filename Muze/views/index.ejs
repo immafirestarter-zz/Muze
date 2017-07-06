@@ -1,13 +1,13 @@
 <!-- views/index.ejs -->
 <!DOCTYPE html>
 <html>
+ <% include layout.ejs %>
 <head>
   <h1> <%=title%></h2>
   <p> Welcome to <%=title%> </p>
 </head>
 
   <body>
-     <% include layout.ejs %>
      <% if (!user) { %>
      <a href="/signin"> signin</a>
      <br/>
