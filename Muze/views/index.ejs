@@ -1,5 +1,17 @@
 <!-- views/index.ejs -->
-
-
+<!DOCTYPE html>
+<html>
+<head>
   <h1> <%=title%></h2>
   <p> Welcome to <%=title%> </p>
+</head>
+
+  <body>
+     <% include layout.ejs %>
+     <% if (!user) { %>
+     <a href="/signin"> signin</a>
+     <br/>
+     <a href="/signup"> signup</a>
+    <% } %>
+  </body>
+</html>
