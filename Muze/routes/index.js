@@ -17,11 +17,11 @@ router.post('/signup', function(req, res){
       if (err) {
         return res.render('signup', { account : account });
       }
-      passport.authenticate('local', { successRedirect: '/',
-                                    failureRedirect: '/signup',
-                                    failureFlash: true })
-      });
+      passport.authenticate('local')(req, res, function () {
+           res.redirect('/');
+         });
   });
+});
 
 router.get('signin', function(req, res){
   res.render('signin', { user : req.user });
