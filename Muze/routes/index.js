@@ -23,14 +23,13 @@ router.post('/signup', function(req, res){
   });
 });
 
-router.get('signin', function(req, res){
+router.get('/signin', function(req, res){
   res.render('signin', { user : req.user });
 });
 
-router.post('/signin', passport.authenticate('local', { successRedirect: '/',
-                              failureRedirect: '/signup',
-                              failureFlash: true })
-);
+router.post('/signin', passport.authenticate('local'), function(req, res) {
+    res.redirect('/');
+});
 
 router.get('/signout', function(req, res){
   req.signout();
