@@ -1,6 +1,6 @@
 var express = require('express');
 var passport = require('passport');
-var Account = require('../models/account');
+var User = require('../models/user');
 var router = express.Router();
 
 /* GET home page. */
@@ -13,7 +13,7 @@ router.get('/signup',function(req, res){
 });
 
 router.post('/signup', function(req, res){
-  Account.register(new Account({ username : req.body.username, name: req.body.name }), req.body.password, function(err, account){
+  User.register(new User({ username : req.body.username, name: req.body.name }), req.body.password, function(err, account){
       if (err) {
         return res.render('signup', { account : account });
       }

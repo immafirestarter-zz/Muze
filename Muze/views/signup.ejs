@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
- <% include layout.ejs %>
 <head>
+  <% include partials/head.ejs %>
   <h1>  Welcome to Muze </h2>
-  <p> Sign Up Here </p>
 </head>
 
   <body>
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="jumbotron text-center">
+      <h1><span class="fa fa-sign-up"></span> Sign Up</h1>
+
+
   <form action="/signup" method="post">
     Name: <input type="text" name="name">
     Username: <input type="text" name="username">
