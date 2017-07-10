@@ -5,30 +5,31 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Muze' , user: req.user });
+  res.render('index', { title: 'Muze' });
 });
 
 router.get('/signup',function(req, res){
-  res.render('signup', { });
+  res.render('signup', { message: req.flash('signupMessage') });
 });
 
-router.post('/signup', function(req, res){
-  User.register(new User({ username : req.body.username, name: req.body.name }), req.body.password, function(err, account){
-      if (err) {
-        return res.render('signup', { account : account });
-      }
-      passport.authenticate('local')(req, res, function () {
-           res.redirect('/');
-         });
-  });
-});
+router.post('/signup', passport.authenticate('local-signup', {
+  successRedirect: '/profile',
+  failureRedirect: '/signup',
+  failureFlash: true,
+}));
 
 router.get('/signin', function(req, res){
-  res.render('signin', { user : req.user });
+  res.render('signin', { message: req.flash('loginMessage') });
 });
 
-router.post('/signin', passport.authenticate('local'), function(req, res) {
-    res.redirect('/');
+router.post('/signin', passport.authenticate('local-signin', {
+  successRedirect: '/profile',
+  failureRedirect: 'signin',
+  failureFlash: true,
+}));
+
+router.get('/profile', isLoggedIn, function(req,res) {
+  res.render('profile', { user: req.user });
 });
 
 router.get('/signout', function(req, res){
@@ -36,13 +37,18 @@ router.get('/signout', function(req, res){
   res.redirect('/');
 });
 
-router.get('signin/facebook',
-  passport.authenticate('facebook'));
+// router.get('signin/facebook',
+//   passport.authenticate('facebook'));
+//
+// router.get('signin/facebook/return',
+//   passport.authenticate('facebook', { failureRedirect: '/signin'}),
+//   function(req, res){
+//     res.redirect('/');
+//   });
 
-router.get('signin/facebook/return',
-  passport.authenticate('facebook', { failureRedirect: '/signin'}),
-  function(req, res){
-    res.redirect('/');
-  });
-
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+    res.redirect('/')
+}
 module.exports = router;

@@ -7,13 +7,11 @@
   <p> Welcome to <%=title%> </p>
 </head>
 
-  <body>
-     <% if (!user) { %>
-     <a href="/signin"> signin</a>
-     <br/>
-     <a href="/signup"> signup</a>
-     <br/>
-     <a href="/signin/facebook">Log In with Facebook</a>
-    <% } %>
+<body>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="jumbotron text-center">
+        <a href="/signin" class="btn btn-default"><span class="fa fa-sign-in"></span> Sign in</a>
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Sign up</a>
+    </div>
   </body>
 </html>

@@ -6,10 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
 var flash = require('connect-flash');
 var session = require('express-session');
+var configDB = require('./config/database.js');
+mongoose.Promise = global.Promise;
+mongoose.connect(configDB.url);
+require('./config/passport')(passport);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -34,6 +36,7 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 app.use('/', index);
 app.use('/users', users);
@@ -45,16 +48,16 @@ app.use('/users', users);
 // passport.deserializeUser(User.deserializeUser());
 
 //config for passport with facebook
-passport.use(new FacebookStrategy({
-  clientID: '1715891488712574',
-  clientSecret: 'e18dfcdd2427b30cacd00a22a9bf886d',
-  callbackURL: "http://localhost:3000/signin/facebook/return"
-},
-function(accessToken, refreshToken, profile, cb) {
-  // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-  //   return cb(err, user);
-  return cb(null, profile);
- }));
+// passport.use(new FacebookStrategy({
+//   clientID: '1715891488712574',
+//   clientSecret: 'e18dfcdd2427b30cacd00a22a9bf886d',
+//   callbackURL: "http://localhost:3000/signin/facebook/return"
+// },
+// function(accessToken, refreshToken, profile, cb) {
+//   // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+//   //   return cb(err, user);
+//   return cb(null, profile);
+//  }));
 
 passport.serializeUser(function(user, cb) {
   cb(null, user);
