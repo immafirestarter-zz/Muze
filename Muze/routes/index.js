@@ -13,7 +13,7 @@ router.get('/signup',function(req, res){
 });
 
 router.post('/signup', function(req, res){
-  Account.register(new Account({ username : req.body.username, email : req.body.email, name: req.body.name }), req.body.password, function(err, account){
+  Account.register(new Account({ username : req.body.username, name: req.body.name }), req.body.password, function(err, account){
       if (err) {
         return res.render('signup', { account : account });
       }
@@ -35,5 +35,14 @@ router.get('/signout', function(req, res){
   req.signout();
   res.redirect('/');
 });
+
+router.get('signin/facebook',
+  passport.authenticate('facebook'));
+
+router.get('signin/facebook/return',
+  passport.authenticate('facebook', { failureRedirect: '/signin'}),
+  function(req, res){
+    res.redirect('/');
+  });
 
 module.exports = router;

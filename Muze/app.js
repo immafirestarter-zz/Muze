@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -41,6 +42,24 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
+//config for passport with facebook
+passport.use(new FacebookStrategy({
+  clientID: '1715891488712574',
+  clientSecret: 'e18dfcdd2427b30cacd00a22a9bf886d',
+  callbackURL: "http://localhost:3000/signin/facebook/return"
+},
+function(accessToken, refreshToken, profile, cb) {
+  // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+  //   return cb(err, user);
+  return cb(null, profile);
+ }));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
 // mongoose
 mongoose.connect('mongodb://localhost/passport_local_mongoose_express4');
 
