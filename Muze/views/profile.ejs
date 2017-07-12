@@ -3,21 +3,21 @@
  <% include partials/head %>
 <head>
   <h1> Muze</h2>
-  <p> Welcome <%=user.local.email%> </p>
 </head>
   <body>
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="text-center">
-        <h1 class=" fa fa-user"> Profile</h1><br>
-        <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
-        <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
-        <hr>
-        <div class="jumbotron">
-          <% if (user.local.email != null) { %>
-            <img src="https://avatars.io/gravatar/<%= user.local.email %>" class="img-circle"><br>
-          <% } %>
-        </div>
-      </div>
-    </div>
+    <% if (user.local.email != null) { %>
+      <img src= "https://avatars.io/gravatar/<%= user.local.email %>/140"
+      class="img-circle"><br>
+      <strong>email</strong>: <%= user.local.email %><br>
+      <% } %>
+
+    <% if (user.facebook.id != null) { %>
+      <h2 class="fa fa-facebook"> Facebook </h2><br>
+      <img src="https://avatars.io/gravatar/<%= user.facebook.email %>/140"
+      class="img-circle"><br>
+      <strong>id</strong>: <%= user.facebook.id %><br>
+      <strong>email</strong>: <%= user.facebook.email %><br>
+      <strong>name</strong>: <%= user.facebook.name %>
+      <% } %>
   </body>
-</html>
+</html
