@@ -1,3 +1,10 @@
+head {
+  padding: 50px;
+  font-size: : 22px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
