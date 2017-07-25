@@ -1,10 +1,12 @@
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin: 10px;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #2c7068;
+    font: bold 16px "Syncopate", sans-serif;
+
 }
 
 li {
@@ -20,7 +22,7 @@ li a {
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: #36bcad;
 }
 
 .dropdown { position: relative; }

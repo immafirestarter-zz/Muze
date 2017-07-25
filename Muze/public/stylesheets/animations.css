@@ -10,11 +10,11 @@
 }
 
 .longFadeImage {
-    -webkit-animation: fadein 7s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 7s; /* Firefox < 16 */
-        -ms-animation: fadein 7s; /* Internet Explorer */
-         -o-animation: fadein 7s; /* Opera < 12.1 */
-            animation: fadein 7s;
+    -webkit-animation: fadein 12s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 12s; /* Firefox < 16 */
+        -ms-animation: fadein 12s; /* Internet Explorer */
+         -o-animation: fadein 12s; /* Opera < 12.1 */
+            animation: fadein 12s;
     display: block;
     margin: 20px auto;
 }

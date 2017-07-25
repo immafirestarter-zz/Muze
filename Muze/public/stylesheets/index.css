@@ -1,18 +1,41 @@
 
 h1 {
-   font: bold 150px "Lucida Grande", Helvetica;
+   font: bold 150px "Syncopate", sans-serif;
    text-align: center;
    position: relative;
-   top: 300px
+   top: 310px
 }
 
-.log-buttons {
-    font: bold 30px "Lucida Grande", Helvetica, Arial, sans-serif;
-    color: #f49542;
-  }
+.M {
+  color: #f2ef4b
+}
+
+.U {
+  color: #59ff96
+}
+
+.Z {
+  color: #59fff9
+}
+
+.E {
+  color: #3c89fc
+}
 
 .links {
+  position: relative;
   text-align: center;
-  position:relative;
-  top: -390px
+  top: 170px;
+}
+
+.signin, .signout, .fbButton {
+  font: bold 35px "Syncopate", sans-serif;
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 5px
+}
+
+.signin:hover, .signout:hover, .fbButton:hover {
+  color: hotpink
 }
