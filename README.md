@@ -20,7 +20,7 @@
 
 ## Tech Stack
 
-  MERN (Mongo, Express, React, Node.js)
+  MEAN (Mongo, Express, Angular, Node.js)
 
 ## To come
 
