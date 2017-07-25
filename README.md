@@ -18,6 +18,10 @@
 
   So far local user and facebook authentication has been added, alongside simple database integration. Some basic HTML and CSS styling has also added.
 
+## Tech Stack
+
+  MERN (Mongo, Express, React, Node.js)
+
 ## To come
 
 * Ability to upload videos and music
