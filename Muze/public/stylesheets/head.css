@@ -4,8 +4,9 @@ ul {
     margin: 10px;
     padding: 0;
     overflow: hidden;
-    background-color: #2c7068;
+    background-color: #32236d;
     font: bold 16px "Syncopate", sans-serif;
+    border-radius: 20px
 
 }
 

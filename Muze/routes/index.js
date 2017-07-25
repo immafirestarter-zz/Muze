@@ -8,6 +8,10 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Muze' });
 });
 
+router.get('/about', function(req, res) {
+  res.render('about')
+});
+
 router.get('/signup',function(req, res){
   res.render('signup', { message: req.flash('signupMessage') });
 });
