@@ -12,7 +12,7 @@
 
 ## For both
 
-  There will be mutliple ways of connecting with for the two parties to connect with each other and register interest. More to come.
+  There will be multiple ways of connecting with for the two parties to connect with each other and register interest. More to come.
 
 # Progress so far
 
