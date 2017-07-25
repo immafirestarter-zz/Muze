@@ -2,15 +2,18 @@
 <!DOCTYPE html>
 <html>
  <% include partials/head %>
+ <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
 <head>
-  <h1> <%=title%></h2>
-  <p> Welcome to <%=title%> </p>
+  <h1> <span class = "fadeImage"> <%=title%></h1> </span>
 </head>
 
 <body>
+  <span class="longFadeImage">
+    <div class="links">
         <a href="/signin" class="log-buttons"> Sign in</a>
         <a href="/signup" class="log-buttons"> Sign up</a>
         <span class="fb-button"> <a href="/auth/facebook"> Facebook Login</a></span>
-    </div>
+      </div>
+    </span>
   </body>
 </html>
