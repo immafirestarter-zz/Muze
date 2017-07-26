@@ -4,10 +4,9 @@ ul {
     margin: 10px;
     padding: 0;
     overflow: hidden;
-    background-color: #32236d;
+    background-color: #396846;
     font: bold 16px "Syncopate", sans-serif;
-    border-radius: 20px
-
+    border-radius: 10px;
 }
 
 li {
