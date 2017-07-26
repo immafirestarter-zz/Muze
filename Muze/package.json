@@ -8,6 +8,7 @@
     "test": "mocha --timeout 10000"
   },
   "dependencies": {
+    "angular": "^1.6.5",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.17.1",
     "chai": "^4.1.0",

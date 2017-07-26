@@ -2,10 +2,26 @@
 <html>
 <% include partials/head.ejs %>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <link rel="stylesheet" href="stylesheets/about.css" type="text/css">
 </head>
 <body>
-  <span class = "fadeImage">
-  <span id="aboutBG"> </span>
+<div ng-app="myApp" ng-controller="myCtrl" class="fadeImage">
+    <span class="toggle"> <button ng-click="toggle = !toggle">{{toggleText}}</button></span>
+    <div class="box on" ng-show="toggle" ng-animate="'box'"><span class="bio"<img src="images/sami.jpeg"></span></div>
+    <script>
+    var app = angular.module('myApp', [], function () {
+
+    })
+
+    app.controller('myCtrl', function ($scope) {
+        $scope.toggle = true;
+
+        $scope.$watch('toggle', function(){
+            $scope.toggleText = $scope.toggle ? 'Bio' : 'Pic';
+        })
+    })
+    </script>
+</div>
 </body>
 </html>
