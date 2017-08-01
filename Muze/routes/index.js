@@ -8,8 +8,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Muze' });
 });
 
-router.get('/about', function(req, res) {
-  res.render('about')
+router.get('/people', function(req, res) {
+  res.render('people')
 });
 
 router.get('/signup',function(req, res){

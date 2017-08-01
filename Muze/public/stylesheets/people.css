@@ -4,11 +4,11 @@
     color:#000000;
     color: #ffffff;
     position: absolute;
-    border-radius: 20px;
     margin-left: 300px;
     margin-top: 20px;
     width: 220px;
     height: 220px;
+    shadow: 10px
 
 }
 
